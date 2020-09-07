@@ -18,4 +18,3 @@ Route::get('/', function () {
 });
 
 Route::get('/search', 'UI\SearchController@find')->name('app.search');
-Route::post('/search', 'UI\SearchController@search')->name('app.search.process');

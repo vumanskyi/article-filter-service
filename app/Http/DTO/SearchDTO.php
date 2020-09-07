@@ -12,4 +12,6 @@ class SearchDTO extends DataTransferObject
     public array $categories = [];
 
     public array $tags = [];
+
+    public bool $search = false;
 }

@@ -5,10 +5,18 @@ namespace App\Domain\Articles;
 
 use App\Domain\Repository;
 use App\Domain\Articles\Contract\ArticlesRepository as BaseRepository;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\AbstractPaginator;
+use Illuminate\Pagination\Paginator;
 
 class ArticlesRepository extends Repository implements BaseRepository
 {
+    /**
+     * @var int
+     */
+    const LIMIT = 6;
+
     /**
      * @param array $filter
      * @return Collection
@@ -21,23 +29,27 @@ class ArticlesRepository extends Repository implements BaseRepository
     /**
      * @param array $filter
      * @param array $relation
-     * @return Collection
+     * @return AbstractPaginator
      */
-    public function findAllWithRelations(array $filter = [], array $relation = []): Collection
+    public function findAllWithRelations(array $filter = [], array $relation = []): AbstractPaginator
     {
-       $query = $this->model->where($filter);
+        if (empty($relation['search'])) {
+            return new Paginator([], 0);
+        }
 
-       if (!empty($relation['category'])) {
+        $query = $this->model->where($filter);
+
+        if (!empty($relation['category'])) {
            $query->whereIn('category_id', $relation['category']);
-       }
+        }
 
-       if (!empty($relation['tags'])) {
+        if (!empty($relation['tags'])) {
            $tags = $relation['tags'];
            $query->whereHas('tags', function ($q) use ($tags) {
                $q->whereIn('tag_id', $tags);
            });
-       }
+        }
 
-       return $query->get();
+        return $query->paginate(self::LIMIT);
     }
 }

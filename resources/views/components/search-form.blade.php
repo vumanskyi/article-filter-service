@@ -1,8 +1,7 @@
 <section class="search-sec">
     <div class="container">
         <h1 class="mt-5 text-center">{{ __('Search form') }}</h1>
-        <form action="{{ route('app.search.process') }}"  method="post" novalidate="novalidate">
-            @csrf
+        <form action="{{ route('app.search') }}" novalidate="novalidate">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">

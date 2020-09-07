@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Domain\Articles\Contract\ArticlesRepository;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\AbstractPaginator;
 use Spatie\DataTransferObject\DataTransferObject;
 
 final class SearchFilterService extends Filter
@@ -23,7 +23,7 @@ final class SearchFilterService extends Filter
     /**
      * @inheritDoc
      */
-    public function search(DataTransferObject $dto): Collection
+    public function search(DataTransferObject $dto): AbstractPaginator
     {
         $relation = [];
         $filter = [
@@ -41,6 +41,8 @@ final class SearchFilterService extends Filter
         if (!empty($dto->tags)) {
             $relation['tags'] = $dto->tags;
         }
+
+        $relation['search'] = $dto->search;
 
         return $this->repository->findAllWithRelations($filter, $relation);
     }

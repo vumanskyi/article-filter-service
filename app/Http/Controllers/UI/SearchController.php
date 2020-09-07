@@ -45,28 +45,30 @@ class SearchController extends Controller
      */
     public function find(SearchRequest $request)
     {
-        return view('search', [
-            'article' => $request->get('name'),
-            'categories' => $this->categoryService->availableCategories(),
-            'tags' => $this->tagService->availableTags(),
-            'collection' => new Collection(),
-        ]);
-    }
-
-    /**
-     * method {POST}
-     * @param SearchRequest $request
-     * @return \Illuminate\View\View
-     */
-    public function search(SearchRequest $request)
-    {
         $collection = $this->service->search($request->getDTO());
 
         return view('search', [
-            'article' => $request->get('name'),
+            'article' => $request->get('article'),
             'categories' => $this->categoryService->availableCategories(),
             'tags' => $this->tagService->availableTags(),
             'collection' => $collection,
         ]);
     }
+
+//    /**
+//     * method {POST}
+//     * @param SearchRequest $request
+//     * @return \Illuminate\View\View
+//     */
+//    public function search(SearchRequest $request)
+//    {
+//        $collection = $this->service->search($request->getDTO());
+//
+//        return view('search', [
+//            'article' => $request->get('name'),
+//            'categories' => $this->categoryService->availableCategories(),
+//            'tags' => $this->tagService->availableTags(),
+//            'collection' => $collection,
+//        ]);
+//    }
 }

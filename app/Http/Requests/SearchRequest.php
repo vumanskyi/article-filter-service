@@ -27,10 +27,15 @@ class SearchRequest extends AbstractFormRequest
      */
     public function getDTO(): DataTransferObject
     {
+        $isSearchRequest = $this->get('article')
+            || $this->get('categories')
+            || $this->get('tags');
+
         return new SearchDTO([
             'articleName' => $this->get('article') ?? '',
             'categories' => $this->get('categories') ?? [],
             'tags' => $this->get('tags') ?? [],
+            'search' => $isSearchRequest
         ]);
     }
 }

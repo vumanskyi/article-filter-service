@@ -32,6 +32,9 @@
                                 </div>
                             </div>
                         @endforeach
+                        <div class="col-md-12">
+                            {{ $collection->appends(request()->except(['page','_token']))->links() }}
+                        </div>
                     </div>
                 @endif
         </div>
