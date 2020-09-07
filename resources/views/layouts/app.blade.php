@@ -68,6 +68,9 @@
                 background: #1A4668;
             }
         }
+        .search-item {
+            min-height: 480px;
+        }
     </style>
 </head>
 <body>
@@ -81,15 +84,11 @@
                     <strong>Blog</strong>
                 </a>
                 <nav class="nav nav-masthead justify-content-center">
-                    <a class="nav-link active" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Contact</a>
                 </nav>
             </div>
         </div>
     </header>
     @yield('content')
-
 
     <footer class="footer mt-auto py-3">
         <div class="container">

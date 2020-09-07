@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\View\TextLimit;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //@text_limit(text)
+        Blade::directive('text_limit', function ($params = '') {
+            return "<?php echo app('" . TextLimit::class . "')->render($params); ?>";
+        });
+
     }
 }
