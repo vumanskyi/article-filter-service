@@ -11,67 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        .bootstrap-select .bs-ok-default::after {
-            width: 0.3em;
-            height: 0.6em;
-            border-width: 0 0.1em 0.1em 0;
-            transform: rotate(45deg) translateY(0.5rem);
-        }
-
-        .bootstrap-select>.dropdown-toggle {
-            border-radius: 0 !important;
-            padding-bottom: .5rem !important;
-        }
-        .btn.dropdown-toggle:focus {
-            outline: none !important;
-        }
-
-        .nav .nav-link {
-            color: #fff;
-        }
-
-        /*search box css start here*/
-        .search-sec{
-            padding: 2rem;
-        }
-        .search-slt{
-            display: block;
-            width: 100%;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            color: #55595c;
-            background-color: #fff;
-            background-image: none;
-            border: 1px solid #ccc;
-            height: calc(3rem + 2px) !important;
-            border-radius:0;
-        }
-        .wrn-btn{
-            width: 100%;
-            font-size: 16px;
-            font-weight: 400;
-            text-transform: capitalize;
-            height: calc(3rem + 2px) !important;
-            border-radius:0;
-        }
-        @media (min-width: 992px){
-            .search-sec{
-                position: relative;
-                background: rgba(26, 70, 104, 0.51);
-            }
-        }
-
-        @media (max-width: 992px){
-            .search-sec{
-                background: #1A4668;
-            }
-        }
-        .search-item {
-            min-height: 480px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
 <div class="d-flex flex-column h-100">
@@ -99,12 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-
-    <script>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
-    </script>
+    <script src="{{asset('js/app.js')}}"></script>
 </div>
 </body>
 </html>
