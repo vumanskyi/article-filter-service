@@ -50,6 +50,6 @@ class ArticlesRepository extends Repository implements BaseRepository
            });
         }
 
-        return $query->paginate(self::LIMIT);
+        return $query->cacheFor(now()->addHours(24))->paginate(self::LIMIT);
     }
 }

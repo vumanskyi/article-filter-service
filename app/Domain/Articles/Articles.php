@@ -6,9 +6,13 @@ namespace App\Domain\Articles;
 use App\Domain\Categories\Categories;
 use App\Domain\Model;
 use App\Domain\Tags\Tags;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Articles extends Model
 {
+    use QueryCacheable;
+
+    protected int $cacheFor = 360; //6 minutes
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
