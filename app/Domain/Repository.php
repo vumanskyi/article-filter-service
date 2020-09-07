@@ -5,7 +5,7 @@ namespace App\Domain;
 
 abstract class Repository
 {
-    private Model $model;
+    protected Model $model;
 
     /**
      * Repository constructor.
