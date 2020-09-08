@@ -4,10 +4,19 @@
 ```
 docker-compose up
 ```
+##### Copy .env
+```
+docker-compose exec php-fpm cp .env.example .env
+```
 
 ##### Install dependencies
 ```
 docker-compose exec php-fpm composer install
+```
+
+##### Generate app key
+```
+docker-compose exec php-fpm php artisan key:generate
 ```
 
 ##### Migrate db

@@ -23,7 +23,7 @@ class ArticlesToTagsSeed extends Seeder
             //sport - ids 10 - 15
             \Illuminate\Support\Facades\DB::table('articles_tags')->insert([
                 'article_id' => $i,
-                'tag_id' => rand(1,4),
+                'tag_id' => rand(2,5),
             ]);
         }
 
@@ -31,7 +31,7 @@ class ArticlesToTagsSeed extends Seeder
             //sport - ids 16 - 19
             \Illuminate\Support\Facades\DB::table('articles_tags')->insert([
                 'article_id' => $i,
-                'tag_id' => rand(1,4),
+                'tag_id' => rand(6,7),
             ]);
         }
     }
