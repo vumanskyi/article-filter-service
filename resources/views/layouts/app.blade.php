@@ -28,6 +28,7 @@
             </div>
         </div>
     </header>
+
     @yield('content')
 
     <footer class="footer mt-auto py-3">

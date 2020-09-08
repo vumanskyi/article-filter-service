@@ -12,9 +12,10 @@
                             @includeIf(
                                 'components.dropbox',
                                 [
-                                    'name' => 'categories[]',
+                                    'name' => 'categories',
                                     'data' => $categories,
-                                    'placeholder' => 'Select Categories'
+                                    'placeholder' => 'Select Categories',
+                                    'class' => 'categories-picker'
                                 ]
                             )
 
@@ -23,9 +24,10 @@
                             @includeIf(
                                 'components.dropbox',
                                 [
-                                    'name' => 'tags[]',
+                                    'name' => 'tags',
                                     'data' => $tags,
-                                    'placeholder' => 'Select Tags'
+                                    'placeholder' => 'Select Tags',
+                                    'class' => 'tags-picker'
                                 ]
                             )
                         </div>

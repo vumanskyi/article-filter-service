@@ -4,6 +4,12 @@ use Illuminate\Database\Seeder;
 
 class CategoriesSeed extends Seeder
 {
+    private static array $title = [
+        'Innovation',
+        'Sport',
+        'Life'
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -11,10 +17,10 @@ class CategoriesSeed extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
+        foreach (self::$title as $title) {
             $faker = \Faker\Factory::create();
             \Illuminate\Support\Facades\DB::table('categories')->insert([
-                'name' => $faker->text(40),
+                'name' => $title,
                 'description' => $faker->paragraph,
                 'active' => true,
             ]);

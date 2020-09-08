@@ -4,6 +4,18 @@ use Illuminate\Database\Seeder;
 
 class TagsSeed extends Seeder
 {
+    private static array $title = [
+        'Sport',
+
+        'Space',
+        'Earth',
+        'Techno',
+        'Cloud',
+
+        'Life',
+        'Family',
+    ];
+
     /**
      * Run the database seeds.
      *
@@ -11,10 +23,10 @@ class TagsSeed extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
+        foreach (self::$title as $title) {
             $faker = \Faker\Factory::create();
             \Illuminate\Support\Facades\DB::table('tags')->insert([
-                'name' => $faker->text(15),
+                'name' => $title,
                 'description' => $faker->paragraph,
                 'active' => true,
             ]);
